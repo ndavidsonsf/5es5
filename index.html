@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stanley Fuller, LMFT — Depth Psychotherapy | San Francisco</title>
+  <meta name="description" content="Stanley Fuller is a licensed Marriage & Family Therapist in San Francisco offering depth-oriented psychotherapy for individuals and couples. Free 15-minute consultation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F5F0E8;
+      --warm-white: #FAF7F2;
+      --sand: #E8DFD0;
+      --terracotta: #A05C3B;
+      --terracotta-light: #C4845F;
+      --deep: #2C2118;
+      --mid: #5C4A38;
+      --muted: #8C7B6B;
+      --sage: #7A8C72;
+      --indigo: #4A5580;
+      --indigo-light: #7A87B0;
+      --line: rgba(92,74,56,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--deep);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      background: rgba(245,240,232,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--deep);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--terracotta); }
+
+    .nav-cta {
+      color: var(--terracotta) !important;
+      border: 1px solid var(--terracotta);
+      padding: 0.5rem 1.25rem;
+      border-radius: 2px;
+      transition: all 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--terracotta) !important; color: white !important; }
+
+    /* ── SHARED ── */
+    section { scroll-margin-top: 80px; }
+
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 3rem; }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+
+    .section-h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--deep);
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--terracotta);
+      color: white;
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--mid); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-block;
+      color: var(--mid);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.5rem;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--mid); color: var(--deep); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 4rem 6rem 6rem;
+      position: relative;
+    }
+
+    .hero-text::after {
+      content: '';
+      position: absolute;
+      top: 15%; bottom: 15%; right: 0;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--deep);
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.35s forwards;
+    }
+
+    .hero-h1 em { font-style: italic; color: var(--terracotta); }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--mid);
+      max-width: 440px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.65s forwards;
+    }
+
+    .hero-image { position: relative; overflow: hidden; background: var(--sand); }
+
+    .hero-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0;
+      animation: fadeIn 1s 0.4s forwards;
+      filter: sepia(8%) saturate(90%);
+    }
+
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(245,240,232,0.12) 0%, transparent 100%);
+    }
+
+    /* ── QUOTE BAR ── */
+    .quote-bar {
+      background: var(--deep);
+      padding: 3rem 6rem;
+      text-align: center;
+    }
+
+    .quote-bar blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 0.75rem;
+      color: #F0E8DC;
+    }
+
+    .quote-bar cite {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terracotta-light);
+      font-style: normal;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--warm-white); }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+
+    .about-credentials { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .credential {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.85rem 1rem;
+      border-left: 2px solid var(--terracotta);
+      background: var(--cream);
+    }
+
+    .credential-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      min-width: 80px;
+    }
+
+    .credential-value { font-size: 0.88rem; color: var(--mid); }
+
+    .about-text p { color: var(--mid); margin-bottom: 1.25rem; font-size: 1rem; line-height: 1.85; }
+
+    /* ── SERVICES ── */
+    #services { background: var(--cream); }
+
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+
+    .service-card {
+      padding: 2rem;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: var(--warm-white);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .service-card:hover { transform: translateY(-3px); border-color: var(--terracotta-light); }
+
+    .service-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--deep);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
+
+    .service-card-group {
+      border-color: rgba(74,85,128,0.25) !important;
+      background: rgba(74,85,128,0.04) !important;
+      cursor: pointer;
+    }
+
+    .service-card-group:hover { border-color: var(--indigo-light) !important; }
+
+    /* ── APPROACH ── */
+    #approach { background: var(--sand); }
+
+    .approach-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
+
+    .approach-text p { color: var(--mid); margin-bottom: 1.25rem; line-height: 1.85; }
+
+    .modalities { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+
+    .modality-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.85rem;
+      border: 1px solid var(--terracotta-light);
+      color: var(--terracotta);
+      border-radius: 2px;
+    }
+
+    .approach-aside { background: var(--deep); color: #F0E8DC; padding: 2.5rem; border-radius: 2px; }
+
+    .approach-aside h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 1.25rem;
+      color: var(--sand);
+    }
+
+    .approach-aside p { font-size: 0.88rem; line-height: 1.8; color: #BFB5A8; margin-bottom: 1rem; }
+
+    .expertise-list { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .expertise-list li { font-size: 0.82rem; color: #BFB5A8; padding-left: 1rem; position: relative; }
+
+    .expertise-list li::before { content: '—'; position: absolute; left: 0; color: var(--terracotta-light); }
+
+    /* ── GROUP TEASER ── */
+    #group { background: var(--deep); }
+
+    .group-teaser { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+
+    .group-teaser-text .section-label { color: var(--indigo-light); }
+    .group-teaser-text .section-h2 { color: var(--sand); }
+
+    .group-teaser-text p { color: #BFB5A8; line-height: 1.85; margin-bottom: 1.25rem; font-size: 1rem; }
+
+    .group-teaser-actions { display: flex; gap: 1rem; align-items: center; margin-top: 0.5rem; flex-wrap: wrap; }
+
+    .btn-indigo {
+      display: inline-block;
+      background: var(--indigo);
+      color: white;
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-indigo:hover { background: #5A6590; transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-block;
+      color: #BFB5A8;
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: white; }
+
+    .group-teaser-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+      padding: 2.5rem;
+    }
+
+    .group-teaser-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--sand);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .group-facts { display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1.75rem; }
+
+    .group-fact { display: flex; gap: 1rem; align-items: baseline; }
+
+    .group-fact-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--indigo-light);
+      min-width: 72px;
+      flex-shrink: 0;
+    }
+
+    .group-fact-value { font-size: 0.88rem; color: #BFB5A8; line-height: 1.5; }
+
+    .group-focus-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .group-focus-pill {
+      font-size: 0.68rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid rgba(122,135,176,0.4);
+      color: var(--indigo-light);
+      border-radius: 2px;
+    }
+
+    /* ── FEES ── */
+    #fees { background: var(--warm-white); }
+
+    .fees-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+
+    .fee-card {
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: var(--cream);
+    }
+
+    .fee-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .fee-period {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .fee-type { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--deep); margin-bottom: 0.75rem; }
+
+    .fee-note { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+
+    .fees-note {
+      margin-top: 2.5rem;
+      padding: 1.5rem 2rem;
+      border-left: 2px solid var(--sage);
+      background: #F0EDE5;
+    }
+
+    .fees-note p { font-size: 0.9rem; color: var(--mid); line-height: 1.75; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--deep); }
+    #contact .section-label { color: var(--terracotta-light); }
+    #contact .section-h2 { color: var(--sand); }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; }
+
+    .contact-info p { color: #BFB5A8; font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; }
+
+    .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-row { display: flex; gap: 1.25rem; align-items: center; }
+
+    .contact-row-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terracotta-light);
+      min-width: 65px;
+    }
+
+    .contact-row-value { font-size: 0.92rem; color: var(--sand); text-decoration: none; transition: color 0.2s; }
+
+    .contact-row-value:hover { color: var(--terracotta-light); }
+
+    .contact-cta { margin-top: 2.5rem; }
+
+    .consultation-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+      padding: 2.5rem;
+    }
+
+    .consultation-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--sand);
+      margin-bottom: 1rem;
+    }
+
+    .consultation-box p { font-size: 0.88rem; color: #BFB5A8; line-height: 1.8; margin-bottom: 1.5rem; }
+
+    .avail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.5rem; }
+
+    .avail-item {
+      padding: 0.85rem 1rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.82rem;
+      color: #BFB5A8;
+      border-radius: 2px;
+    }
+
+    .avail-item strong {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta-light);
+      margin-bottom: 0.2rem;
+      font-weight: 400;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1A130D;
+      padding: 2rem 6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer p { font-size: 0.75rem; color: #6B5F53; }
+
+    footer a { font-size: 0.75rem; color: #6B5F53; text-decoration: none; transition: color 0.2s; }
+
+    footer a:hover { color: var(--terracotta-light); }
+
+    .footer-links { display: flex; gap: 2rem; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-text { padding: 5rem 2rem 3rem; }
+      .hero-text::after { display: none; }
+      .hero-image { height: 55vw; }
+      .about-grid, .approach-grid, .group-teaser, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .services-grid, .fees-grid { grid-template-columns: 1fr; }
+      .section-inner { padding: 4rem 1.5rem; }
+      .quote-bar { padding: 2.5rem 1.5rem; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .avail-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <!-- ====================================================
+         SITE NAME: Appears top-left on every page
+         Update if Stanley's name or credentials change
+         ==================================================== -->
+    <a href="#hero" class="nav-name">Stanley Fuller, LMFT</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#group">Men's Group</a></li>
+      <li><a href="#fees">Fees</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-text">
+      <!-- ====================================================
+           HERO HEADLINE: Main tagline at top of page
+           Keep to 2-3 lines, poetic/evocative tone works well
+           ==================================================== -->
+      <p class="hero-eyebrow">Depth Psychotherapy · San Francisco</p>
+      <h1 class="hero-h1">A space to explore<br>what lies <em>beneath</em><br>the surface.</h1>
+
+      <!-- ====================================================
+           HERO DESCRIPTION: 2-3 sentence intro below headline
+           Should speak directly to the kind of client Stanley works with
+           ==================================================== -->
+      <p class="hero-desc">Many of the people I work with are thoughtful and self-aware but sense something deeper shaping their lives. Together, we work toward greater self-understanding, emotional freedom, and more authentic relationships.</p>
+
+      <!-- ====================================================
+           HERO BUTTON: Primary call-to-action
+           Update the email address if it changes
+           ==================================================== -->
+      <div class="hero-actions">
+        <a href="mailto:StanleyFullerPsychotherapy@gmail.com" class="btn-primary">Request a Free Consultation</a>
+        <a href="#about" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <!-- ====================================================
+           PHOTO: Replace with Stanley's headshot
+           File: images/stanley-headshot.jpg
+           Recommended: square or portrait crop, min 600px wide
+           ==================================================== -->
+      <img src="images/stanley-headshot.jpg" alt="Stanley Fuller, LMFT" />
+    </div>
+  </section>
+
+  <!-- QUOTE BAR -->
+  <div class="quote-bar">
+    <!-- ====================================================
+         FEATURED QUOTE: Appears in the dark band below the hero
+         Use a short, meaningful line from Stanley's own words
+         ==================================================== -->
+    <blockquote>"I know that life can feel like a struggle and impossible to navigate. I am here to hold you and lift you into your life. You are not alone."</blockquote>
+    <cite>— Stanley Fuller, LMFT, MA</cite>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div>
+          <p class="section-label">About Stanley</p>
+          <h2 class="section-h2">Warmth, depth,<br>and genuine care.</h2>
+
+          <!-- ====================================================
+               CREDENTIALS: Update if license number, education,
+               certifications, or years in practice change
+               ==================================================== -->
+          <div class="about-credentials">
+            <div class="credential">
+              <span class="credential-label">License</span>
+              <span class="credential-value">LMFT, California #148373</span>
+            </div>
+            <div class="credential">
+              <span class="credential-label">Education</span>
+              <span class="credential-value">MA Counseling Psychology, California Institute of Integral Studies, 2017</span>
+            </div>
+            <div class="credential">
+              <span class="credential-label">Certificate</span>
+              <span class="credential-value">Jungian Couples Therapy, Pacifica Graduate Institute, 2026</span>
+            </div>
+            <div class="credential">
+              <span class="credential-label">Experience</span>
+              <span class="credential-value">11 years in practice</span>
+            </div>
+            <div class="credential">
+              <span class="credential-label">Endorsed</span>
+              <span class="credential-value">Verified by Psychology Today</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================
+             BIO TEXT: Stanley's personal statement
+             Update any time Stanley wants to refresh his voice
+             or add/remove focus areas mentioned here
+             ==================================================== -->
+        <div class="about-text">
+          <p>My approach is grounded in depth psychology — exploring the unconscious patterns and early relational experiences that quietly shape how we live and connect today.</p>
+          <p>You may feel stuck in recurring patterns, whether in relationships, anxiety, depression, or life transitions. Many of the people I work with are thoughtful and self-aware, yet sense something deeper beneath the surface.</p>
+          <p>I offer a place of open heart and compassion — for you to explore yourself and heal. I work with an affirming, non-judgmental presence across a wide range of experiences including identity, sexuality, trauma, grief, and chronic pain.</p>
+          <p>I utilize depth transpersonal psychodynamics — linking your life journey to the present moment, walking with you through it all with support, empathy, and care.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner">
+      <p class="section-label">What I Offer</p>
+      <h2 class="section-h2">Meaningful and lasting change.</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">◯</div>
+          <h3>Individual Therapy</h3>
+          <p>One-on-one depth-oriented psychotherapy for adults navigating anxiety, depression, life transitions, identity questions, grief, trauma, and personal growth.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◎</div>
+          <h3>Couples Therapy</h3>
+          <p>Jungian-informed couples work exploring intimacy patterns, relational conflicts, communication, and the deeper dynamics that shape your relationship.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◉</div>
+          <h3>Family Therapy</h3>
+          <p>Family sessions supporting connection, understanding, and healing across generational and relational dynamics.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">▽</div>
+          <h3>LGBTQ+ Affirming</h3>
+          <p>A fully affirming space for LGBTQ+ individuals and couples. Kink-affirmative and sex-positive. You are welcome exactly as you are.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">△</div>
+          <h3>Substance Use &amp; Addiction</h3>
+          <p>Compassionate support for those navigating substance use, chronic relapse, and addiction — without judgment, with genuine care.</p>
+        </div>
+        <div class="service-card service-card-group" onclick="document.getElementById('group').scrollIntoView({behavior:'smooth'})">
+          <div class="service-icon" style="color:var(--indigo);">◳</div>
+          <h3>Gay Men's Process Group</h3>
+          <p>A confidential 6-person therapy group for gay men offering community, depth, and lasting connection. <span style="color:var(--indigo);">Learn more ↓</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <div class="section-inner">
+      <div class="approach-grid">
+        <div class="approach-text">
+          <p class="section-label">My Approach</p>
+          <h2 class="section-h2">Depth, insight,<br>and the here and now.</h2>
+          <p>My work is rooted in depth psychology — the belief that lasting change comes from understanding the unconscious forces, early experiences, and relational patterns that shape us. I draw on psychoanalytic thinking, Jungian frameworks, and transpersonal psychology to help you understand the full arc of your story.</p>
+          <p>At the same time, I am firmly present with you in the here and now — listening, reflecting, and holding a compassionate space for whatever you bring. I believe that the therapeutic relationship itself is a profound vehicle for healing.</p>
+          <div class="modalities">
+            <span class="modality-tag">Psychodynamic</span>
+            <span class="modality-tag">Jungian</span>
+            <span class="modality-tag">Relational</span>
+            <span class="modality-tag">Trauma-Focused</span>
+            <span class="modality-tag">Transpersonal</span>
+            <span class="modality-tag">Humanistic</span>
+            <span class="modality-tag">Mindfulness-Based</span>
+            <span class="modality-tag">Person-Centered</span>
+          </div>
+        </div>
+        <div class="approach-aside">
+          <h3>Areas of Focus</h3>
+          <p>I work extensively with a broad range of human experiences:</p>
+          <ul class="expertise-list">
+            <li>Anxiety &amp; Depression</li>
+            <li>Trauma &amp; PTSD</li>
+            <li>Childhood trauma &amp; grief</li>
+            <li>Sexual abuse &amp; recovery</li>
+            <li>LGBTQ+ identity &amp; sexuality</li>
+            <li>Kink-affirmative &amp; sex-positive</li>
+            <li>Substance use &amp; addiction</li>
+            <li>Chronic pain &amp; illness</li>
+            <li>Life transitions &amp; aging</li>
+            <li>Relationship &amp; intimacy patterns</li>
+            <li>Men's issues</li>
+            <li>Spirituality</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROUP TEASER -->
+  <section id="group">
+    <div class="section-inner">
+      <div class="group-teaser">
+        <div class="group-teaser-text">
+          <p class="section-label">SF Gay Men's Support + Process Group</p>
+          <h2 class="section-h2">Together, we support<br><em style="font-style:italic; color:var(--indigo-light);">one another.</em></h2>
+          <p>A confidential 6-person therapy group for gay men navigating aging, grief, loneliness, identity, chronic illness, and questions of meaning — led with warmth and depth.</p>
+          <p>Rooted in a psychodynamic, relational approach, the group offers something individual therapy cannot: the lived experience of being truly known by others who understand.</p>
+          <div class="group-teaser-actions">
+            <a href="group.html" class="btn-indigo">Learn More &amp; How to Join</a>
+            <a href="mailto:StanleyFullerPsychotherapy@gmail.com" class="btn-ghost">Email Stanley</a>
+          </div>
+        </div>
+        <div class="group-teaser-card">
+          <h3>Group at a glance</h3>
+          <div class="group-facts">
+            <div class="group-fact">
+              <span class="group-fact-label">Format</span>
+              <span class="group-fact-value">Confidential, 6-person process group</span>
+            </div>
+            <div class="group-fact">
+              <span class="group-fact-label">Sessions</span>
+              <span class="group-fact-value">Weekly, 75–90 minutes</span>
+            </div>
+            <div class="group-fact">
+              <span class="group-fact-label">Approach</span>
+              <span class="group-fact-value">Psychodynamic &amp; relational</span>
+            </div>
+            <div class="group-fact">
+              <span class="group-fact-label">Location</span>
+              <span class="group-fact-value">540 Castro Street, San Francisco</span>
+            </div>
+            <div class="group-fact">
+              <span class="group-fact-label">Fees</span>
+              <span class="group-fact-value">Sliding scale · Superbill provided</span>
+            </div>
+          </div>
+          <div class="group-focus-pills">
+            <span class="group-focus-pill">Aging</span>
+            <span class="group-focus-pill">Grief &amp; Loss</span>
+            <span class="group-focus-pill">Loneliness</span>
+            <span class="group-focus-pill">Identity</span>
+            <span class="group-focus-pill">Chronic Illness</span>
+            <span class="group-focus-pill">Intimacy</span>
+            <span class="group-focus-pill">Meaning</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEES -->
+  <section id="fees">
+    <div class="section-inner">
+      <p class="section-label">Fees &amp; Insurance</p>
+      <h2 class="section-h2">Transparent, accessible pricing.</h2>
+      <div class="fees-grid">
+
+        <!-- ====================================================
+             FEE CARDS: Update dollar amounts if pricing changes
+             The three cards are: Individual / Couples / Consultation
+             ==================================================== -->
+        <div class="fee-card">
+          <div class="fee-amount">$200</div>
+          <div class="fee-period">per session</div>
+          <div class="fee-type">Individual Therapy</div>
+          <p class="fee-note">50-minute individual sessions available daytime and select evenings, in-person or via video.</p>
+        </div>
+        <div class="fee-card">
+          <div class="fee-amount">$225</div>
+          <div class="fee-period">per session</div>
+          <div class="fee-type">Couples Therapy</div>
+          <p class="fee-note">Couples and family sessions. In-person in San Francisco's Castro neighborhood or online.</p>
+        </div>
+        <div class="fee-card">
+          <div class="fee-amount">Free</div>
+          <div class="fee-period">15 minutes</div>
+          <div class="fee-type">Initial Consultation</div>
+          <p class="fee-note">A complimentary call to discuss your needs and see if we're a good fit. No obligation.</p>
+        </div>
+      </div>
+      <div class="fees-note">
+        <p><strong>Sliding scale available</strong> — I believe therapy should be accessible. Please reach out to ask about sliding scale fees if cost is a barrier. I also provide a superbill that you can submit to your insurance for potential out-of-network reimbursement. Payment via Visa, Mastercard, and American Express. Group therapy fees are separate — see the <a href="group.html" style="color:var(--terracotta); text-decoration:none;">Men's Group page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-h2">Begin your journey.</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>Taking the first step is often the hardest part. I invite you to reach out for a free 15-minute consultation — a gentle, no-pressure conversation to explore whether we might be a good fit.</p>
+          <div class="contact-details">
+            <div class="contact-row">
+              <span class="contact-row-label">Email</span>
+              <a href="mailto:StanleyFullerPsychotherapy@gmail.com" class="contact-row-value">StanleyFullerPsychotherapy@gmail.com</a>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row-label">Location</span>
+              <span class="contact-row-value">540 Castro Street, San Francisco, CA</span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row-label">Format</span>
+              <span class="contact-row-value">In-person &amp; Online (video)</span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row-label">Directory</span>
+              <a href="https://www.psychologytoday.com/us/therapists/stanley-fuller-san-francisco-ca/1144436" class="contact-row-value" target="_blank">Psychology Today ↗</a>
+            </div>
+          </div>
+          <div class="contact-cta">
+            <a href="mailto:StanleyFullerPsychotherapy@gmail.com" class="btn-primary">Email for a Free Consultation</a>
+          </div>
+        </div>
+        <div class="consultation-box">
+          <h3>Availability</h3>
+          <p>I have openings for new clients. Sessions are available in-person at my San Francisco office or online via secure video.</p>
+
+          <!-- ====================================================
+               AVAILABILITY GRID: Update when schedule changes
+               Four tiles: Daytime / Evenings / In-Person / Online
+               Simply edit the text inside each tile below
+               ==================================================== -->
+          <div class="avail-grid">
+            <div class="avail-item"><strong>Daytime</strong>Weekday sessions available</div>
+            <div class="avail-item"><strong>Evenings</strong>Select evening times</div>
+            <div class="avail-item"><strong>In-Person</strong>San Francisco, CA 94114</div>
+            <div class="avail-item"><strong>Online</strong>Secure video sessions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       FOOTER: Update year, license number, or address if needed
+       ==================================================== -->
+  <footer>
+    <p>© 2026 Stanley Fuller, LMFT · MA · License #148373 · San Francisco, CA</p>
+    <div class="footer-links">
+      <a href="group.html">Men's Group</a>
+      <a href="https://www.psychologytoday.com/us/therapists/stanley-fuller-san-francisco-ca/1144436" target="_blank">Psychology Today ↗</a>
+    </div>
+  </footer>
+
+</body>
+</html>

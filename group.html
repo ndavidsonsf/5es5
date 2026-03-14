@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SF Gay Men's Support & Process Group — Stanley Fuller, LMFT</title>
+  <meta name="description" content="A confidential 6-person therapy group for gay men in San Francisco. Weekly sessions led by Stanley Fuller, LMFT. Psychodynamic, relational approach. Sliding scale available." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F5F0E8;
+      --warm-white: #FAF7F2;
+      --sand: #E8DFD0;
+      --terracotta: #A05C3B;
+      --terracotta-light: #C4845F;
+      --deep: #2C2118;
+      --mid: #5C4A38;
+      --muted: #8C7B6B;
+      --sage: #7A8C72;
+      --indigo: #4A5580;
+      --indigo-light: #7A87B0;
+      --indigo-pale: #EEF0F6;
+      --line: rgba(92,74,56,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--deep);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      background: rgba(245,240,232,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--deep);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active { color: var(--terracotta); }
+
+    .nav-cta {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta) !important;
+      border: 1px solid var(--terracotta);
+      padding: 0.5rem 1.25rem;
+      border-radius: 2px;
+      transition: all 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--terracotta) !important;
+      color: white !important;
+    }
+
+    /* ── HERO ── */
+    .group-hero {
+      padding-top: 80px;
+      background: var(--deep);
+      min-height: 60vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .group-hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4rem 5rem 6rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--indigo-light);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .group-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--sand);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.35s forwards;
+    }
+
+    .group-hero h1 em {
+      font-style: italic;
+      color: var(--terracotta-light);
+    }
+
+    .group-hero-desc {
+      font-size: 1rem;
+      color: #BFB5A8;
+      max-width: 420px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.65s forwards;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--terracotta);
+      color: white;
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--mid); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-block;
+      color: #BFB5A8;
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.35); color: white; }
+
+    .group-hero-visual {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1E1610;
+    }
+
+    .group-hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+      filter: sepia(20%) saturate(80%);
+      animation: fadeIn 1.2s 0.3s forwards;
+      opacity: 0;
+    }
+
+    /* Decorative circles echoing the flyer */
+    .deco-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(74,85,128,0.25);
+    }
+
+    .deco-circle-1 { width: 180px; height: 180px; top: -40px; right: -40px; }
+    .deco-circle-2 { width: 120px; height: 120px; bottom: -30px; left: -20px; }
+
+    /* ── CALLOUT BAR ── */
+    .callout-bar {
+      background: var(--indigo);
+      padding: 1.5rem 6rem;
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .callout-item {
+      text-align: center;
+    }
+
+    .callout-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: white;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .callout-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--indigo-light);
+    }
+
+    .callout-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* ── SECTIONS ── */
+    section { scroll-margin-top: 80px; }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+
+    .section-h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--deep);
+      margin-bottom: 2rem;
+    }
+
+    /* ── ABOUT GROUP ── */
+    #about-group { background: var(--warm-white); }
+
+    .about-group-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-group-text p {
+      color: var(--mid);
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+    }
+
+    /* Focus areas */
+    .focus-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .focus-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      font-size: 0.92rem;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    .focus-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--terracotta-light);
+      margin-top: 0.55rem;
+      flex-shrink: 0;
+    }
+
+    /* What to expect */
+    .expect-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .expect-row {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1rem 1.25rem;
+      background: var(--cream);
+      border-left: 2px solid var(--indigo);
+      border-radius: 0 2px 2px 0;
+    }
+
+    .expect-icon {
+      font-size: 1rem;
+      margin-top: 0.1rem;
+      color: var(--indigo);
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .expect-content strong {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--deep);
+      margin-bottom: 0.15rem;
+      letter-spacing: 0.02em;
+    }
+
+    .expect-content span {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── IS THIS FOR YOU ── */
+    #for-you { background: var(--sand); }
+
+    .for-you-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .for-you-text p {
+      color: var(--mid);
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+
+    .for-you-card {
+      background: var(--deep);
+      color: var(--sand);
+      padding: 2.5rem;
+      border-radius: 2px;
+    }
+
+    .for-you-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--sand);
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .for-you-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .for-you-items li {
+      font-size: 0.88rem;
+      color: #BFB5A8;
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .for-you-items li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--terracotta-light);
+      font-size: 0.8rem;
+    }
+
+    /* ── FORMAT ── */
+    #format { background: var(--cream); }
+
+    .format-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .format-card {
+      padding: 2rem 1.75rem;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: var(--warm-white);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .format-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--indigo-light);
+    }
+
+    .format-card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--indigo);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+      opacity: 0.6;
+    }
+
+    .format-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--deep);
+      margin-bottom: 0.6rem;
+    }
+
+    .format-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── FEES ── */
+    #group-fees { background: var(--warm-white); }
+
+    .fees-note {
+      margin-top: 2.5rem;
+      padding: 1.5rem 2rem;
+      border-left: 2px solid var(--sage);
+      background: var(--cream);
+    }
+
+    .fees-note p {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    .fee-highlight {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .fee-box {
+      padding: 2rem;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .fee-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--indigo);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .fee-period {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .fee-desc {
+      font-size: 0.85rem;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    /* ── CONTACT ── */
+    #group-contact { background: var(--deep); }
+
+    #group-contact .section-label { color: var(--indigo-light); }
+    #group-contact .section-h2 { color: var(--sand); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      margin-top: 3rem;
+    }
+
+    .contact-info p {
+      color: #BFB5A8;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .contact-row-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--indigo-light);
+      min-width: 65px;
+    }
+
+    .contact-row-value {
+      font-size: 0.92rem;
+      color: var(--sand);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-row-value:hover { color: var(--terracotta-light); }
+
+    .contact-cta { margin-top: 2.5rem; }
+
+    .join-box {
+      background: rgba(74,85,128,0.2);
+      border: 1px solid rgba(122,135,176,0.25);
+      border-radius: 2px;
+      padding: 2.5rem;
+    }
+
+    .join-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--sand);
+      margin-bottom: 1rem;
+    }
+
+    .join-box p {
+      font-size: 0.88rem;
+      color: #BFB5A8;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .join-steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .join-steps li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      font-size: 0.85rem;
+      color: #BFB5A8;
+      line-height: 1.5;
+    }
+
+    .step-num {
+      min-width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--indigo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.68rem;
+      color: white;
+      margin-top: 0.05rem;
+      flex-shrink: 0;
+    }
+
+    /* ── BACK LINK ── */
+    .back-bar {
+      background: var(--cream);
+      padding: 1rem 6rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .back-link {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--terracotta); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1A130D;
+      padding: 2rem 6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer p { font-size: 0.75rem; color: #6B5F53; letter-spacing: 0.05em; }
+
+    footer a {
+      font-size: 0.75rem;
+      color: #6B5F53;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: var(--terracotta-light); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 0.55; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .group-hero { grid-template-columns: 1fr; min-height: auto; }
+      .group-hero-text { padding: 5rem 2rem 3rem; }
+      .group-hero-visual { height: 50vw; }
+      .callout-bar { padding: 1.5rem; gap: 1.5rem; }
+      .callout-divider { display: none; }
+      .about-group-grid, .for-you-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .format-cards { grid-template-columns: 1fr; }
+      .fee-highlight { grid-template-columns: 1fr; }
+      .section-inner { padding: 4rem 1.5rem; }
+      .back-bar, footer { padding: 1.5rem; flex-direction: column; gap: 0.75rem; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-name">Stanley Fuller, LMFT</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="group.html" class="active">Men's Group</a></li>
+      <li><a href="index.html#fees">Fees</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="group-hero">
+    <div class="group-hero-text">
+      <!-- ====================================================
+           GROUP PAGE HEADLINE & INTRO
+           Update if the group's focus or description changes
+           ==================================================== -->
+      <p class="hero-eyebrow">SF Gay Men's Support + Process Group</p>
+      <h1>Together, we support <em>one another.</em></h1>
+      <p class="group-hero-desc">Are you seeking deeper connection, understanding, and a space where you can truly be yourself? This is that space.</p>
+
+      <!-- ====================================================
+           CONTACT BUTTON: Update email address if it changes
+           ==================================================== -->
+      <div class="hero-actions">
+        <a href="mailto:StanleyFullerPsychotherapy@gmail.com" class="btn-primary">Inquire About the Group</a>
+      </div>
+    </div>
+    <div class="group-hero-visual">
+      <div class="deco-circle deco-circle-1"></div>
+      <div class="deco-circle deco-circle-2"></div>
+      <!-- ====================================================
+           GROUP PHOTO: A warm image of men in conversation
+           File: images/mens-group.jpg
+           Recommended: landscape, people-focused, min 800px wide
+           ==================================================== -->
+      <img src="images/mens-group.jpg" alt="Men in a supportive group setting" />
+    </div>
+  </div>
+
+  <!-- ====================================================
+       GROUP STATS BAR: Key facts shown in the dark band
+       Update if group size, session length, or frequency changes
+       ==================================================== -->
+  <div class="callout-bar">
+    <div class="callout-item">
+      <div class="callout-value">6</div>
+      <div class="callout-label">Person group</div>
+    </div>
+    <div class="callout-divider"></div>
+    <div class="callout-item">
+      <div class="callout-value">75–90</div>
+      <div class="callout-label">Minute sessions</div>
+    </div>
+    <div class="callout-divider"></div>
+    <div class="callout-item">
+      <div class="callout-value">Weekly</div>
+      <div class="callout-label">Meetings</div>
+    </div>
+    <div class="callout-divider"></div>
+    <div class="callout-item">
+      <div class="callout-value">Sliding</div>
+      <div class="callout-label">Scale available</div>
+    </div>
+  </div>
+
+  <!-- ABOUT GROUP -->
+  <section id="about-group">
+    <div class="section-inner">
+      <div class="about-group-grid">
+        <div>
+          <p class="section-label">About the Group</p>
+          <h2 class="section-h2">A confidential space to explore what matters most.</h2>
+          <div class="about-group-text">
+            <p>This is a small, intimate group — just 6 men — offering a warm, affirming space to explore your inner world alongside others who understand the particular texture of gay men's lives.</p>
+            <p>Rooted in a psychodynamic and relational approach, the group goes beyond symptom relief. We explore the deeper patterns, early experiences, and relational dynamics that shape who we are and how we connect.</p>
+          </div>
+          <br>
+          <p class="section-label" style="margin-bottom: 0.75rem;">The group is especially supportive for men navigating:</p>
+          <!-- ====================================================
+               FOCUS AREAS: Add or remove list items as needed
+               Each <li> is one topic the group addresses
+               ==================================================== -->
+          <ul class="focus-list">
+            <li>Aging &amp; life transitions</li>
+            <li>Chronic illness or health-related stress</li>
+            <li>Grief, loss, and identity changes</li>
+            <li>Loneliness or disconnection</li>
+            <li>Changes in intimacy or community</li>
+            <li>Questions of meaning &amp; emotional depth</li>
+          </ul>
+        </div>
+        <div>
+          <p class="section-label" style="margin-bottom: 1.5rem;">What you can expect</p>
+          <div class="expect-grid">
+            <div class="expect-row">
+              <span class="expect-icon">◷</span>
+              <div class="expect-content">
+                <strong>Weekly sessions, 75–90 minutes</strong>
+                <span>Consistent rhythm that allows for deepening trust and exploration over time.</span>
+              </div>
+            </div>
+            <div class="expect-row">
+              <span class="expect-icon">◎</span>
+              <div class="expect-content">
+                <strong>Psychodynamic, relational approach</strong>
+                <span>We explore the patterns and experiences that shape how you relate to yourself and others.</span>
+              </div>
+            </div>
+            <div class="expect-row">
+              <span class="expect-icon">◇</span>
+              <div class="expect-content">
+                <strong>Emotional insight &amp; self-compassion</strong>
+                <span>Tools and experience to understand yourself more deeply and move through life with greater ease.</span>
+              </div>
+            </div>
+            <div class="expect-row">
+              <span class="expect-icon">○</span>
+              <div class="expect-content">
+                <strong>Confidential &amp; affirming</strong>
+                <span>A fully safe space. What's shared in group stays in group.</span>
+              </div>
+            </div>
+            <div class="expect-row">
+              <span class="expect-icon">$</span>
+              <div class="expect-content">
+                <strong>Sliding scale &amp; superbill</strong>
+                <span>Fee support available. Superbill provided for out-of-network insurance reimbursement.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IS THIS FOR YOU -->
+  <section id="for-you">
+    <div class="section-inner">
+      <div class="for-you-grid">
+        <div class="for-you-text">
+          <p class="section-label">Is This For You?</p>
+          <h2 class="section-h2">You don't have to navigate this alone.</h2>
+          <p>Group therapy can feel like a big step — and it is a powerful one. Many men find that the group experience offers something individual therapy cannot: the direct, lived experience of being truly known by others who understand.</p>
+          <p>This group may be especially meaningful if you've been in individual therapy and are ready to bring that inner work into relationship — or if connection and belonging feel like the deeper questions you're holding.</p>
+          <p>Stanley will meet with you individually before you join to ensure the group is the right fit and to ease any uncertainty about the process.</p>
+        </div>
+        <div class="for-you-card">
+          <h3>You might find this group especially valuable if you…</h3>
+          <ul class="for-you-items">
+            <li>Feel isolated or disconnected from other gay men</li>
+            <li>Are navigating grief, loss, or major life change</li>
+            <li>Struggle with intimacy or repeating relationship patterns</li>
+            <li>Are dealing with aging, health, or changes in your body</li>
+            <li>Long for a community that truly sees you</li>
+            <li>Want to deepen your emotional intelligence and self-awareness</li>
+            <li>Are ready to move beyond just coping — toward genuine growth</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAT -->
+  <section id="format">
+    <div class="section-inner">
+      <p class="section-label">Group Format</p>
+      <h2 class="section-h2">Thoughtfully structured, deeply human.</h2>
+      <div class="format-cards">
+        <div class="format-card">
+          <div class="format-card-num">01</div>
+          <h3>Small &amp; Intimate</h3>
+          <p>With just 6 members, this is a close-knit group. The small size creates the conditions for real trust, genuine depth, and meaningful connection.</p>
+        </div>
+        <div class="format-card">
+          <div class="format-card-num">02</div>
+          <h3>Process-Oriented</h3>
+          <p>Sessions aren't structured around topics or curriculum. Instead, what arises in the room — between members, and within each person — becomes the material for exploration.</p>
+        </div>
+        <div class="format-card">
+          <div class="format-card-num">03</div>
+          <h3>Led with Care</h3>
+          <p>Stanley brings his warmth, depth-psychology training, and 11 years of experience to hold the group with skill and compassion — creating safety without rigidity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       GROUP FEES: Update sliding scale note or superbill
+       policy if Stanley's approach changes
+       ==================================================== -->
+  <section id="group-fees">
+    <div class="section-inner">
+      <p class="section-label">Fees</p>
+      <h2 class="section-h2">Accessible to those who need it.</h2>
+      <div class="fee-highlight">
+        <div class="fee-box">
+          <div class="fee-amount">Sliding</div>
+          <div class="fee-period">scale available</div>
+          <p class="fee-desc">Group fees are offered on a sliding scale. Please reach out to discuss what's workable — cost should not be a barrier to this work.</p>
+        </div>
+        <div class="fee-box">
+          <div class="fee-amount">Superbill</div>
+          <div class="fee-period">provided</div>
+          <p class="fee-desc">A monthly superbill is provided so you can seek reimbursement from your insurance for out-of-network mental health benefits.</p>
+        </div>
+      </div>
+      <div class="fees-note">
+        <p>To discuss group fees and availability, please contact Stanley directly at <a href="mailto:StanleyFullerPsychotherapy@gmail.com" style="color: var(--terracotta); text-decoration: none;">StanleyFullerPsychotherapy@gmail.com</a>. An individual consultation session is typically scheduled before joining to ensure the group is the right fit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="group-contact">
+    <div class="section-inner">
+      <p class="section-label">Join the Group</p>
+      <h2 class="section-h2">Take the first step.</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>Reaching out is the hardest part. Stanley will respond personally and schedule a brief, no-pressure conversation to answer your questions and explore whether this group is right for you.</p>
+          <div class="contact-details">
+            <div class="contact-row">
+              <span class="contact-row-label">Email</span>
+              <a href="mailto:StanleyFullerPsychotherapy@gmail.com" class="contact-row-value">StanleyFullerPsychotherapy@gmail.com</a>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row-label">Location</span>
+              <span class="contact-row-value">540 Castro Street, San Francisco</span>
+            </div>
+          </div>
+          <div class="contact-cta">
+            <a href="mailto:StanleyFullerPsychotherapy@gmail.com" class="btn-primary">Email Stanley About the Group</a>
+          </div>
+        </div>
+        <div class="join-box">
+          <h3>How joining works</h3>
+          <p>The process is simple and low-pressure.</p>
+          <ul class="join-steps">
+            <li>
+              <span class="step-num">1</span>
+              Reach out by email to express interest and ask any initial questions.
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              Stanley will schedule a brief individual consultation to learn about you and share more about the group.
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              If it feels like a fit, you'll be welcomed into the group at the next available opening.
+            </li>
+            <li>
+              <span class="step-num">4</span>
+              Attend your first session — and experience the group for yourself.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BACK -->
+  <div class="back-bar">
+    <a href="index.html" class="back-link">← Back to stanleyfullerpsychotherapy.com</a>
+  </div>
+
+  <!-- ====================================================
+       FOOTER: Update year, address, or license if needed
+       ==================================================== -->
+  <footer>
+    <p>© 2026 Stanley Fuller, LMFT · MA · License #148373 · 540 Castro Street, San Francisco, CA</p>
+    <a href="https://www.psychologytoday.com/us/therapists/stanley-fuller-san-francisco-ca/1144436" target="_blank">Psychology Today Profile</a>
+  </footer>
+
+</body>
+</html>
